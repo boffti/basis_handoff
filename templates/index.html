@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+    <title>basis_handoff</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+
+    <!-- Dashboard Core -->
+    <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker3.min.css') }}">
+</head>
+
+<body class="">
+    <div class="page">
+
+        <div class="page-main">
+            <div class="header py-4 fixed-top">
+                <div class="container">
+                    <div class="d-flex">
+                        <a class="header-brand" href="#">
+                            <img src="{{ url_for('static', filename='images/handoff_logo.png') }}"
+                                class="header-brand-img" alt="kSTAT">
+                        </a>
+                        <div class="d-flex order-lg-2 ml-auto">
+                            <!-- Icons go here -->
+                            <div class="nav-item d-none d-md-flex">
+                                <a href="/logout">
+                                    <button class="btn btn-outline-primary btn-sm">Log Out</button>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse"
+                            data-target="#headerMenuCollapse">
+                            <span class="header-toggler-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3 my-md-5">
+            </div>
+
+            <!-- Block buttons here -->
+            <br><br><br>
+
+            <!-- Main Content -->
+
+            <div class="container">
+
+                <div class="card" style="padding: 15px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <div id='sandbox-container' class="input-group date">
+                                <div class="input-group">
+                                    <span class="input-group-prepend" id="basic-addon1">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Select Date">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-info btn-lg" style="width: 100%;">Morning
+                                Shift</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">Afternoon
+                                Shift</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-dark btn-lg" style="width: 100%;">Night Shift</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-danger btn-pill btn-lg btn-block"
+                            style="margin-bottom: 24px;"><i class="fas fa-exclamation mr-4"></i>Add Priority
+                            Task</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-primary btn-pill btn-lg btn-block"
+                            style="margin-bottom: 24px;"><i class="far fa-handshake mr-4"></i>Add Handoff Note</button>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-status bg-red"></div>
+                            <div class="card-header">
+                                <h3 class="card-title">Priority</h3>
+                                <div class="card-options">
+                                    <a href="#" class="card-options-fullscreen"><i
+                                            class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, coipisicing elit. Aperiam deleniti fugit incidunt, iste,
+                                itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A
+                                consequuntur, deserunt eaque error nulla temporibus!nsectetur ad Lorem ipsum dolor sit
+                                amet, coipisicing elit. Aperiam deleniti fugit incidunt, iste,
+                                itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A
+                                consequuntur, deserunt eaque error nulla temporibus!nsectetur ad
+                            </div>
+                            <div class="card-footer text-right">
+                                Kruthika Krishnamurthy
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-status bg-blue"></div>
+                            <div class="card-header">
+                                <h3 class="card-title">Handoff</h3>
+                                <div class="card-options">
+                                    <a href="#" class="card-options-fullscreen"><i
+                                        class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                                <p>2. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis
+                                    sed suscipit velit vitae
+                                    voluptatem. A consequuntur, deserunt eaque error nulla temporibus! </p>
+
+                                <p> Lorem ipsum dolor sit amet, coipisicing elit. Aperiam deleniti fugit incidunt, iste,
+                                    itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A
+                                    consequuntur, deserunt eaque error nulla temporibus!nsectetur ad Lorem ipsum dolor
+                                    sit amet, coipisicing elit. Aperiam deleniti fugit incidunt, iste,
+                                    itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A
+                                    consequuntur, deserunt eaque error nulla temporibus!nsectetur ad</p>
+                            </div>
+                            <div class="card-footer text-right">
+                                Shimpy Ranjan
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- End Main Content -->
+
+            </div>
+
+
+
+            <footer class="footer fixed-bottom">
+                <div class="loading-bar"></div>
+                <div class="container">
+                    <div class="row align-items-center flex-row-reverse">
+
+                        <div class="col-auto ml-lg-auto">
+
+                        </div>
+
+
+                        <div class="dropdown d-none d-md-flex">
+                            <a class="nav-link icon">
+                                <i class="fas fa-question-circle"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown d-none d-md-flex">
+                            <a class="nav-link icon" href="#" role="button" data-toggle="modal"
+                                data-target="#aboutModal">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" style="width: 85px;"
+                                alt="logo">
+                            &nbsp;&nbsp;© 2019 &nbsp;&nbsp;<a href="#">basis_handoff</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </footer>
+        </div>
+
+        <!-- About Modal -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><i
+                                class="fas fa-info"></i>&nbsp;&nbsp;&nbsp;About
+                        </h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <strong>basis_handoff</strong> is a dashboard that can be used provide handoff instructions
+                            for the subsequent pools coming in shifts -
+                            <br><a href="https://html-css-js.com/" target="_blank"><i>HTML, CSS, JS</i></a><br> <a
+                                href="https://www.wikiwand.com/en/Representational_state_transfer"
+                                target="_blank"><i>REST
+                                    APIs</i></a><br> <a href="http://flask.pocoo.org/" target="_blank"><i>Python
+                                    FLASK</i></a><br><a href="https://www.sqlite.org/index.html"
+                                target="_blank"><i>SQLite
+                                    3</i></a>
+                            <br>
+                        </p>
+                        <!-- ACK -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 offset-3">
+                                <p class="text-center"><strong>Crafted by</strong></p>
+                                <a href="http://linkedin.com/in/kruthikask" target="_blank" class="text-black">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="mx-auto d-block">
+                                                <img class="rounded-circle mx-auto d-block"
+                                                    src="{{ url_for('static', filename='images/kruthika.jpg') }}"
+                                                    alt="Card image cap">
+                                                <h5 class="text-sm-center mt-2 mb-1 black">Kruthika K</h5>
+                                                <div class="location text-sm-center"><i
+                                                        class="fas fa-map-marker-alt"></i>
+                                                    Bangalore, India</div>
+                                            </div>
+                                            <!-- <hr>
+                                <div class="card-text text-sm-center">
+                                    <a href="#"><i class="fa fa-facebook pr-1"></i></a>
+                                    <a href="#"><i class="fa fa-twitter pr-1"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
+                                </div> -->
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!-- <p><strong>Acknowledgements</strong>: <br>&nbsp;<a href="http://linkedin.com/in/aneeshmelkot" target="_blank">Aneesh Melkot</a> - For project scaffolding and backend support.</p> -->
+                        <p><strong>*Please adjust browser zoom to 70%-80% for optimum viewing.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <script src="{{ url_for('static', filename='js/vendors/bootstrap.bundle.min.js') }}"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="{{ url_for('static', filename='js/core.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+
+</body>
+
+</html>
