@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
         // options...
         itemSelector: '.grid-item',
         columnWidth: 100
-      });
+    });
 
 
     $('#sandbox-container input').datepicker({
@@ -119,6 +119,16 @@ jQuery(document).ready(function ($) {
         });
     }
 
+
+    $('#btnUploadPriority').on('click', function () {
+        console.log(quillGetHTML(quill_priority.getContents()));
+    });
+
+    function quillGetHTML(inputDelta) {
+        var tempQuill = new Quill(document.createElement("div"));
+        tempQuill.setContents(inputDelta);
+        return tempQuill.root.innerHTML;
+    }
 
 
 });

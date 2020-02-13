@@ -37,6 +37,11 @@ def login_handler():
       return render_template('login.html', error=error)
 
 
+@app.route('/add_priority_task')
+def addPriorityTask():
+    return render_template('expression')
+
+
 
 
 @app.route("/logout")

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker3.min.css') }}">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -81,15 +82,18 @@
                             </div>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-info btn-lg" style="width: 100%;">Morning
+                            <button type="button" class="btn btn-info btn-lg" style="width: 100%;">
+                                <i class="fe fe-sunrise mr-2"></i>Morning
                                 Shift</button>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">Afternoon
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+                                <i class="fe fe-sun mr-2"></i>Afternoon
                                 Shift</button>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-dark btn-lg" style="width: 100%;">Night Shift</button>
+                            <button type="button" class="btn btn-dark btn-lg" style="width: 100%;">
+                                <i class="fe fe-moon mr-2"></i>Night Shift</button>
                         </div>
                     </div>
                 </div>
@@ -97,12 +101,14 @@
                 <div class="row">
                     <div class="col-6">
                         <button type="button" class="btn btn-outline-danger btn-pill btn-lg btn-block"
-                            style="margin-bottom: 24px;"><i class="fas fa-exclamation mr-4"></i>Add Priority
+                            style="margin-bottom: 24px;" data-toggle="modal" data-target="#priorityModal">
+                            <i class="fas fa-exclamation mr-4"></i>Add Priority
                             Task</button>
                     </div>
                     <div class="col-6">
                         <button type="button" class="btn btn-outline-primary btn-pill btn-lg btn-block"
-                            style="margin-bottom: 24px;"><i class="far fa-handshake mr-4"></i>Add Handoff Note</button>
+                            style="margin-bottom: 24px;" data-toggle="modal" data-target="#handoffModal">
+                            <i class="far fa-handshake mr-4"></i>Add Handoff Note</button>
                     </div>
                 </div>
 
@@ -115,8 +121,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Priority</h3>
                                 <div class="card-options">
-                                    <a href="#" class="card-options-fullscreen"><i
-                                            class="far fa-trash-alt"></i></a>
+                                    <a href="#" class="card-options-fullscreen"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -140,8 +145,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Handoff</h3>
                                 <div class="card-options">
-                                    <a href="#" class="card-options-fullscreen"><i
-                                        class="far fa-trash-alt"></i></a>
+                                    <a href="#" class="card-options-fullscreen"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -208,6 +212,190 @@
             </footer>
         </div>
 
+
+
+        <!-- Priority Task Modal -->
+        <div class="modal fade" id="priorityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <i class="fas fa-exclamation mr-4"></i>&nbsp;&nbsp;&nbsp;Add Priority Task
+                        </h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+         </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Fill in all the info for the priority task here. Make sure to include as much information as
+                            possible to aid the personnel coming in the next shift.
+                            <br>
+                        </p>
+
+                        <div id='sandbox-container' class="input-group date">
+                            <div class="form-group">
+                                <label class="form-label">Date</label>
+                                <div class="input-group">
+                                    <span class="input-group-prepend" id="basic-addon1">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Select Date">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" name="example-text-input" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Your Shift</label>
+                            <div class="selectgroup selectgroup-pills">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1" class="selectgroup-input"
+                                        checked="">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-sunrise"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2" class="selectgroup-input">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="3" class="selectgroup-input">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Short Description</label>
+                            <input type="text" class="form-control" name="example-text-input"
+                                placeholder="Give a brief one line description of the task here...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Full Description</label>
+                            <div id="editor_priority" style="height: 200px;">
+
+                              </div>
+                        </div>
+
+                        <br>
+
+
+                        <br>
+                        <button id="btnUploadPriority" type="button" class="btn btn-outline-danger btn-pill btn-lg btn-block"
+                            style="margin-bottom: 24px;">
+                            <i class="fe fe-share mr-4"></i>Upload Priority
+                            Task</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Handoff Task Modal -->
+        <div class="modal fade" id="handoffModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <i class="far fa-handshake mr-4"></i>&nbsp;&nbsp;&nbsp;Add Handoff Note
+                        </h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+       </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Fill in all the info for the handoff notes here. Make sure to include as much information as
+                            possible to aid the personnel coming in the next shift.
+                            <br>
+                        </p>
+
+                        <div id='sandbox-container' class="input-group date">
+                            <div class="form-group">
+                                <label class="form-label">Date</label>
+                                <div class="input-group">
+                                    <span class="input-group-prepend" id="basic-addon1">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Select Date">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" name="example-text-input" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Your Shift</label>
+                            <div class="selectgroup selectgroup-pills">
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="1" class="selectgroup-input"
+                                        checked="">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-sunrise"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="2" class="selectgroup-input">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-sun"></i></span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    <input type="radio" name="icon-input" value="3" class="selectgroup-input">
+                                    <span class="selectgroup-button selectgroup-button-icon"><i
+                                            class="fe fe-moon"></i></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Short Description</label>
+                            <input type="text" class="form-control" name="example-text-input"
+                                placeholder="Give a brief one line description of the note here...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Full Description</label>
+                            <div id="editor_handoff" style="height: 200px;">
+
+                              </div>
+                        </div>
+
+                        <br>
+
+
+                        <br>
+                        <button type="button" class="btn btn-outline-primary btn-pill btn-lg btn-block"
+                            style="margin-bottom: 24px;" data-toggle="modal" data-target="#handoffModal">
+                            <i class="fe fe-share mr-4"></i>Upload Handoff
+                            Note</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
         <!-- About Modal -->
         <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -250,13 +438,6 @@
                                                         class="fas fa-map-marker-alt"></i>
                                                     Bangalore, India</div>
                                             </div>
-                                            <!-- <hr>
-                                <div class="card-text text-sm-center">
-                                    <a href="#"><i class="fa fa-facebook pr-1"></i></a>
-                                    <a href="#"><i class="fa fa-twitter pr-1"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin pr-1"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest pr-1"></i></a>
-                                </div> -->
                                         </div>
                                     </div>
                                 </a>
@@ -278,6 +459,26 @@
         <script src="{{ url_for('static', filename='js/core.js') }}"></script>
         <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+        <!-- Include the Quill library -->
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+        <!-- Initialize Quill editor -->
+        <script>
+            var toolbarOptions = [
+            ['bold', 'italic', 'underline'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link']
+            ];
+            var quill_priority = new Quill('#editor_priority', {
+                theme: 'snow',
+                modules: {
+                    toolbar: toolbarOptions
+                }
+            });
+            var quill_handoff = new Quill('#editor_handoff', {
+                theme: 'snow',
+                modules: {
+                    toolbar: toolbarOptions
+                }
+            });
+        </script>
 
 </body>
 
